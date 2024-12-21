@@ -19,11 +19,11 @@ export default function Home() {
               />
           </Link>
         </div>
-        <div className="max-w-screen-md mx-auto pt-20">
+        <div className="max-w-screen-md mx-auto pt-10 sm:pt-16">
           <p className="text-xl pb-[10px]">Apple Watch Studio</p>
-          <h1 className="text-3xl sm:text-6xl font-semibold leading-tight">Choose a case.</h1>
-          <h1 className="text-3xl sm:text-6xl font-semibold leading-tight">Pick a band.</h1>
-          <h1 className="text-3xl sm:text-6xl font-semibold leading-tight">Create your own style.</h1>
+          <h1 className="text-[40px] sm:text-6xl font-semibold leading-tight tracking-[-.009em]">Choose a case.</h1>
+          <h1 className="text-[40px] sm:text-6xl font-semibold leading-tight tracking-[-.009em]">Pick a band.</h1>
+          <h1 className="text-[40px] sm:text-6xl font-semibold leading-tight tracking-[-.009em]">Create your own style.</h1>
           <button 
             className="rounded-3xl bg-[#0076df] hover:bg-[#0077dff6] px-7 py-3 mt-[43px] text-white"
             aria-label="Get started with Apple Watch Studio">
