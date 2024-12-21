@@ -28,6 +28,6 @@ body {
   background: var(--background);
   font-family: var(--font);
 }
-.font-poppins{
+.custom_font{
   font-family: var(--font);
 }

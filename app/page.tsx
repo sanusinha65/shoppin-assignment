@@ -32,16 +32,16 @@ export default function Home() {
           <div className="relative w-full">
             <Image
               src="/assets/images/strap-cover.jpeg"
-              width={850}
-              height={850}
+              width={1000}
+              height={1000}
               alt="Strap Cover"
               className="absolute top-0 left-0"
               priority
             />
             <Image
               src="/assets/images/watch-front.png"
-              width={850}
-              height={850}
+              width={1000}
+              height={1000}
               alt="Watch Front"
               className="absolute top-0 left-0"
               priority
