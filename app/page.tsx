@@ -187,6 +187,7 @@ export default function Home() {
             </div>
           </div>
         )}
+        <div className="py-10"></div>
       </section>
     </>
   );
