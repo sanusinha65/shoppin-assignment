@@ -257,7 +257,7 @@ export default function Home() {
                             />
                             {/* Back View */}
                             <Image
-                              src={`${frontView[sizeOption as keyof typeof frontView][0]}-${selectedCase}.png`}
+                              src={`${frontView[sizeOption as keyof typeof frontView][0]}-${selectedCase.toLowerCase()}.png`}
                               width={1000}
                               height={1000}
                               alt={`${sizeOption} Back View`}
