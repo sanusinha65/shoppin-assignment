@@ -222,7 +222,7 @@ export default function Home() {
                       className="w-full pr-1" />
                   </button>
                   {/* Render all available images */}
-                  {sizeOptions.map((sizeOption, index) => (
+                  {sizeOptions.map((sizeOption) => (
                     <div
                       key={sizeOption}
                       className={`w-full max-w-xs md:max-w-md h-80 md:h-[448px] relative ${selectedSize === sizeOption ? 'border-blue-400 border-2' : ''
