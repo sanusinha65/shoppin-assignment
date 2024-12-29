@@ -12,18 +12,19 @@ export default function Home() {
   const [isCaseButtonsSelected, setIsCaseButtonsSelected] = useState(false);
   const [isBandButtonsSelected, setIsBandButtonsSelected] = useState(false);
   const [isWatchCollectionsOpen, setIsWatchCollectionsOpen] = useState(false);
-  const [allWatchData, setAllWatchData] = useState(watchData);
+  const [allWatchData] = useState(watchData);
   const [selectedSize, setSelectedSize] = useState(allWatchData[0].size[0]);
   const [selectedCase, setSelectedCase] = useState(allWatchData[0].case[0]);
   const [selectedPrice, setSelectedPrice] = useState(allWatchData[0].price[0]);
   const [selectedBand, setSelectedBand] = useState(allWatchData[0].band[0]);
   const [collectionsData, setCollectionsData] = useState<{ name: string; index: number }[]>([]);
   const [watch, setWatchData] = useState(watchData[0]);
-  const { name, size, frontView, sideView, band, price } = watch;
+  const { name, frontView, sideView, price } = watch;
   const sizeOptions = ['42mm', '46mm'];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
+    console.log(currentIndex);
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex > 0 ? prevIndex - 1 : sizeOptions.length - 1;
       setSelectedSize(sizeOptions[newIndex]);
