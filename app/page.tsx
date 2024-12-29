@@ -430,7 +430,7 @@ export default function Home() {
             </button>
             <div className="relative w-full">
               <Image
-                src="/assets/images/watch-42mm-back.jpeg"
+                src="/assets/images/watch-42mm-back-solo-loop.jpeg"
                 width={1000}
                 height={1000}
                 alt="Strap Cover"
