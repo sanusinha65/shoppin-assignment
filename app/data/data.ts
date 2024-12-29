@@ -1,71 +1,34 @@
-export const watchData = {
-  name: "Apple Watch Series 10",
-  cases: [
-    {
-      type: "Aluminum",
-      sizes: [
-        {
-          size: 42,
-          watchImage: "/assets/images/aluminum-42.png", // Watch without band
-          sideImage: "/assets/images/aluminum-42-side.png",
-          price: 399
-        },
-        {
-          size: 46,
-          watchImage: "/assets/images/aluminum-46.png", // Watch without band
-          sideImage: "/assets/images/aluminum-46-side.png",
-          price: 429
-        }
-      ]
+export const watchData = [
+  {
+    id: 0,
+    name: "Apple Watch Series 10",
+    size: ["42mm", "46mm"],
+    price: [399, 429],
+    case: ["Aluminium", "Titanium"],
+    band: ["Solo Loop", "FineWoven"],
+    frontView: {
+      "42mm": ["/assets/images/watch-42mm-front", "/assets/images/watch-42mm-back"],
+      "46mm": ["/assets/images/watch-46mm-front", "/assets/images/watch-46mm-back"],
     },
-    {
-      type: "Titanium",
-      sizes: [
-        {
-          size: 42,
-          watchImage: "/assets/images/titanium-42.png", // Watch without band
-          sideImage: "/assets/images/titanium-42-side.png",
-          price: 749
-        },
-        {
-          size: 46,
-          watchImage: "/assets/images/titanium-46.png", // Watch without band
-          sideImage: "/assets/images/titanium-46-side.png",
-          price: 779
-        }
-      ]
-    }
-  ],
-  bands: [
-    {
-      type: "Solo Loop",
-      colors: [
-        {
-          color: "Black",
-          bandImage: "/assets/images/solo-loop-black.png", // Band image
-          price: 35
-        },
-        {
-          color: "White",
-          bandImage: "/assets/images/solo-loop-white.png", // Band image
-          price: 35
-        }
-      ]
+    sideView: {
+      "42mm": "/assets/images/side-view-watch-42mm",
+      "46mm": "/assets/images/side-view-watch-46mm",
     },
-    {
-      type: "Sport Loop",
-      colors: [
-        {
-          color: "Blue",
-          bandImage: "/assets/images/sport-loop-blue.png", // Band image
-          price: 45
-        },
-        {
-          color: "Green",
-          bandImage: "/assets/images/sport-loop-green.png", // Band image
-          price: 45
-        }
-      ]
-    }
-  ]
-};
+  },
+  {
+    id: 1,
+    name: "Apple Watch Hermes Series 10",
+    size: ["42mm", "46mm"],
+    price: [1899, 1949],
+    case: ["Aluminium"],
+    band: ["Hermes Grand H", "Hermes Kilim"],
+    frontView: {
+      "42mm": ["/assets/images/watch-hermes-42mm-front", "/assets/images/watch-42mm-hermes-back"],
+      "46mm": ["/assets/images/watch-hermes-46mm-front", "/assets/images/watch-46mm-hermes-back"],
+    },
+    sideView: {
+      "42mm": "/assets/images/side-view-watch-hermes-42mm",
+      "46mm": "/assets/images/side-view-watch-hermes-46mm",
+    },
+  }
+];
