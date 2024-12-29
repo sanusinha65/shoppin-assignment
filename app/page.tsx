@@ -13,7 +13,7 @@ export default function Home() {
   const [isBandButtonsSelected, setIsBandButtonsSelected] = useState(false);
   const [isWatchCollectionsOpen, setIsWatchCollectionsOpen] = useState(false);
   const [allWatchData] = useState(watchData);
-  const [selectedSize, setSelectedSize] = useState(allWatchData[0].size[0]);
+  const [selectedSize, setSelectedSize] = useState<keyof typeof sideView>(allWatchData[0].size[0] as keyof typeof sideView);
   const [selectedCase, setSelectedCase] = useState(allWatchData[0].case[0]);
   const [selectedPrice, setSelectedPrice] = useState(allWatchData[0].price[0]);
   const [selectedBand, setSelectedBand] = useState(allWatchData[0].band[0]);
@@ -27,7 +27,7 @@ export default function Home() {
     console.log(currentIndex);
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex > 0 ? prevIndex - 1 : sizeOptions.length - 1;
-      setSelectedSize(sizeOptions[newIndex]);
+      setSelectedSize(sizeOptions[newIndex] as keyof typeof sideView);
       setSelectedPrice(price[newIndex]);
       return newIndex;
     });
@@ -36,7 +36,7 @@ export default function Home() {
   const handleNext = () => {
     setCurrentIndex((prevIndex) => {
       const newIndex = prevIndex < sizeOptions.length - 1 ? prevIndex + 1 : 0;
-      setSelectedSize(sizeOptions[newIndex]);
+      setSelectedSize(sizeOptions[newIndex] as "42mm" | "46mm");
       setSelectedPrice(price[newIndex]);
       return newIndex;
     });
@@ -49,20 +49,20 @@ export default function Home() {
     }, 200); // Delay to allow animation to complete
   };
 
-  const convertToSlug = (str) => {
+  const convertToSlug = (str: string) => {
     return str.toLowerCase().replace(/\s+/g, '-');
   }
 
   const handleChangeData = (index: number) => {
     setWatchData(watchData[index]);
-    setSelectedSize(watchData[index].size[0]);
+    setSelectedSize(watchData[index].size[0] as "42mm" | "46mm");
     setSelectedCase(watchData[index].case[0]);
     setSelectedPrice(watchData[index].price[0]);
     setSelectedBand(watchData[index].band[0]);
     setIsWatchCollectionsOpen(!isWatchCollectionsOpen);
   };
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Close the modal if the overlay is clicked
     if (e.target === e.currentTarget) {
       setIsWatchCollectionsOpen(!isWatchCollectionsOpen);
@@ -124,7 +124,7 @@ export default function Home() {
       // Validate size index
       const sizeIndexNum = Number(sizeIndex);
       if (sizeIndexNum >= 0 && sizeIndexNum < watch.size.length) {
-        setSelectedSize(watch.size[sizeIndexNum]);
+        setSelectedSize(watch.size[sizeIndexNum] as "42mm" | "46mm");
       } else {
         console.log("Invalid size index:", sizeIndex);
         window.history.replaceState({}, '', '/');
@@ -237,7 +237,7 @@ export default function Home() {
                         {/* Side View (Conditional Rendering) */}
                         {isSideView && selectedSize === sizeOption ? (
                           <Image
-                            src={`${sideView[sizeOption]}-${convertToSlug(selectedBand)}.jpeg`}
+                            src={`${sideView[sizeOption as keyof typeof sideView]}-${convertToSlug(selectedBand)}.jpeg`}
                             width={1000}
                             height={1000}
                             alt={`${sizeOption} Side View`}
@@ -248,7 +248,7 @@ export default function Home() {
                           <>
                             {/* Front View */}
                             <Image
-                              src={`${frontView[sizeOption][1]}-${convertToSlug(selectedBand)}.jpeg`}
+                              src={`${frontView[sizeOption as keyof typeof frontView][1]}-${convertToSlug(selectedBand)}.jpeg`}
                               width={1000}
                               height={1000}
                               alt={`${sizeOption} Front View`}
@@ -257,7 +257,7 @@ export default function Home() {
                             />
                             {/* Back View */}
                             <Image
-                              src={`${frontView[sizeOption][0]}-${selectedCase}.png`}
+                              src={`${frontView[sizeOption as keyof typeof frontView][0]}-${selectedCase}.png`}
                               width={1000}
                               height={1000}
                               alt={`${sizeOption} Back View`}
@@ -347,7 +347,7 @@ export default function Home() {
                     {watch.size.map((item, index) => (
                       <>
                         <button key={index}
-                          onClick={() => { setSelectedSize(item); setSelectedPrice(price[index]) }}
+                          onClick={() => { setSelectedSize(item as "42mm" | "46mm"); setSelectedPrice(price[index]) }}
                         >
                           <span className={`px-2 ${selectedSize === item ? 'font-bold' : ''}`}>{item}</span>
                         </button>
