@@ -337,8 +337,8 @@ export default function Home() {
             </div>
 
             {/* Size selection buttons */}
-            <div className="w-full max-w-screen-2xl">
-              <div className="flex flex-nowrap justify-center overflow-x-auto">
+            <div className="w-full max-w-screen-2xl overflow-auto">
+              <div className="w-auto md:w-full inline-flex flex-row justify-center gap-2">
                 {isSizeButtonsSelected ? (
                   <div className="rounded-3xl text-[17px] flex bg-[#E8E8ED] px-5 py-2">
                     <button onClick={() => setIsSizeButtonsSelected(!isSizeButtonsSelected)}>
